@@ -1,0 +1,17 @@
+{
+    "cardiology": [
+        "Have you ever been diagnosed with high blood pressure? (yes/no) ",
+        "Have you ever had a heart attack? (yes/no) ",
+        "Do you experience chest pain or discomfort? (yes/no) "
+    ],
+    "gastroenterology": [
+        "Do you have any history of stomach ulcers? (yes/no) ",
+        "Do you experience bloating or abdominal pain? (yes/no) ",
+        "Have you experienced any changes in bowel habits? (yes/no) "
+    ],
+    "dermatology": [
+        "Do you have any history of eczema or psoriasis? (yes/no) ",
+        "Have you experienced any rashes or itching? (yes/no) ",
+        "Do you have any moles or spots that have changed in appearance? (yes/no) "
+    ]
+}
