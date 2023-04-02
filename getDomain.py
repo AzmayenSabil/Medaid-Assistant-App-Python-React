@@ -2,7 +2,7 @@
 domains = {
     'cardiology': {
         'keywords': ['heart', 'chest', 'blood pressure', 'palpitation'],
-        'weight': 2
+        'weight': 1
     },
     'gastroenterology': {
         'keywords': ['stomach', 'abdomen', 'nausea', 'vomiting'],

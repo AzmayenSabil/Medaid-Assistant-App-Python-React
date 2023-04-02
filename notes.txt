@@ -29,3 +29,11 @@ After downloading the appropriate version for your system, extract the contents 
 add the folder containing the portaudio.h header file to your system's include path, and
 the folder containing the compiled library file (libportaudio.so or libportaudio.dylib on Unix-like systems, or
 portaudio_x86.dll or portaudio_x64.dll on Windows) to your system's library path. You can then try reinstalling PyAudio using pip.
+
+
+//
+
+
+Onboarding screen -> logo, starting and stuffs
+screen-1 -> welcome screen
+

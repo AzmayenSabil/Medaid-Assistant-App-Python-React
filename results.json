@@ -2,116 +2,21 @@
     "patient_details": [
         {
             "user_info": {
-                "age": "23",
+                "age": "12",
                 "gender": "male",
-                "medical_history": "yes",
-                "chief_complaint": "heart"
+                "medical_history": "yes"
             },
-            "responses": {
-                "Have you ever been diagnosed with high blood pressure? (yes/no) ": "no",
-                "Have you ever had a heart attack? (yes/no) ": "no",
-                "Do you experience chest pain or discomfort? (yes/no) ": "yes"
-            }
-        },
-        {
-            "user_info": {
-                "age": "24",
-                "gender": "female",
-                "medical_history": "yes",
-                "chief_complaint": "skin"
-            },
-            "responses": {
-                "Do you have any history of eczema or psoriasis? (yes/no) ": "no",
-                "Have you experienced any rashes or itching? (yes/no) ": "yes",
-                "Do you have any moles or spots that have changed in appearance? (yes/no) ": "yes"
-            }
-        },
-        {
-            "user_info": {
-                "age": "18",
-                "gender": "female",
-                "medical_history": "no",
-                "chief_complaint": "skin"
-            },
+            "chief_complaints": [
+                "skin",
+                "rash",
+                "heart"
+            ],
             "responses": {
                 "Do you have any history of eczema or psoriasis? (yes/no) ": "yes",
-                "Have you experienced any rashes or itching? (yes/no) ": "yes",
+                "Have you experienced any rashes or itching? (yes/no) ": "no",
                 "Do you have any moles or spots that have changed in appearance? (yes/no) ": "yes"
-            }
-        },
-        {
-            "user_info": {
-                "age": "05",
-                "gender": "male",
-                "medical_history": "no",
-                "chief_complaint": "stomach"
             },
-            "responses": {
-                "Do you have any history of stomach ulcers? (yes/no) ": "yes",
-                "Do you experience bloating or abdominal pain? (yes/no) ": "no",
-                "Have you experienced any changes in bowel habits? (yes/no) ": "no"
-            }
-        },
-        {
-            "user_info": {
-                "age": "27",
-                "gender": "male",
-                "medical_history": "yes",
-                "chief_complaint": "heart"
-            },
-            "responses": {
-                "Have you ever been diagnosed with high blood pressure? (yes/no) ": "yes",
-                "Have you ever had a heart attack? (yes/no) ": "yes",
-                "Do you experience chest pain or discomfort? (yes/no) ": "yes"
-            }
-        },
-        {
-            "user_info": {
-                "age": "22",
-                "gender": "male",
-                "medical_history": "yes"
-            },
-            "responses": {
-                "Have you ever been diagnosed with high blood pressure? (yes/no) ": "yes",
-                "Have you ever had a heart attack? (yes/no) ": "yes",
-                "Do you experience chest pain or discomfort? (yes/no) ": "yes"
-            }
-        },
-        {
-            "user_info": {
-                "age": "18",
-                "gender": "female",
-                "medical_history": "yes"
-            },
-            "responses": {
-                "Have you ever been diagnosed with high blood pressure? (yes/no) ": "no ",
-                "Have you ever had a heart attack? (yes/no) ": "no",
-                "Do you experience chest pain or discomfort? (yes/no) ": "yes"
-            }
-        },
-        {
-            "user_info": {
-                "age": "23",
-                "gender": "male",
-                "medical_history": "yes"
-            },
-            "responses": {
-                "Have you ever been diagnosed with high blood pressure? (yes/no) ": "yes",
-                "Have you ever had a heart attack? (yes/no) ": "no",
-                "Do you experience chest pain or discomfort? (yes/no) ": "yes"
-            }
-        },
-        {
-            "user_info": {
-                "age": "1",
-                "gender": "male",
-                "medical_history": "yes"
-            },
-            "responses": {
-                "Do you have any history of eczema or psoriasis? (yes/no) ": "yes",
-                "Have you experienced any rashes or itching? (yes/no) ": "yes",
-                "Do you have any moles or spots that have changed in appearance? (yes/no) ": "yes"
-            }
+            "domain": "dermatology"
         }
     ]
 }
