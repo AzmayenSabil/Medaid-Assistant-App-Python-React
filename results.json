@@ -17,6 +17,68 @@
                 "Do you have any moles or spots that have changed in appearance? (yes/no) ": "yes"
             },
             "domain": "dermatology"
+        },
+        {
+            "user_info": {
+                "age": "12",
+                "gender": "male",
+                "medical_history": "yes"
+            },
+            "chief_complaints": [
+                "skin"
+            ],
+            "responses": {
+                "Do you have any history of eczema or psoriasis? (yes/no) ": "yes",
+                "Have you experienced any rashes or itching? (yes/no) ": "yes",
+                "Do you have any moles or spots that have changed in appearance? (yes/no) ": "yes"
+            },
+            "domain": "dermatology"
+        },
+        {
+            "user_info": {
+                "age": "01",
+                "gender": "male",
+                "medical_history": "yes"
+            },
+            "chief_complaints": [
+                "heart",
+                "stomach",
+                "pain"
+            ],
+            "responses": {
+                "Have you ever been diagnosed with high blood pressure? (yes/no) ": "yes",
+                "Have you ever had a heart attack? (yes/no) ": "no",
+                "Do you experience chest pain or discomfort? (yes/no) ": "yes"
+            },
+            "domain": "cardiology"
+        },
+        {
+            "user_info": {
+                "age": "02",
+                "gender": "male",
+                "medical_history": "yes"
+            },
+            "chief_complaint": "heart",
+            "responses": {
+                "Have you ever been diagnosed with high blood pressure? (yes/no) ": "yes",
+                "Have you ever had a heart attack? (yes/no) ": "yes",
+                "Do you experience chest pain or discomfort? (yes/no) ": "yes"
+            },
+            "domain": "cardiology"
+        },
+        {
+            "user_info": {
+                "age": "1234",
+                "gender": "male",
+                "medical_history": "yes"
+            },
+            "chief_complaint": "skin,rash,heart",
+            "responses": {
+                "Do you have any history of eczema or psoriasis? (yes/no) ": "yes",
+                "Have you experienced any rashes or itching? (yes/no) ": "yes",
+                "Do you have any moles or spots that have changed in appearance? (yes/no) ": "yes"
+            },
+            "domain": "dermatology"
         }
     ]
 }
