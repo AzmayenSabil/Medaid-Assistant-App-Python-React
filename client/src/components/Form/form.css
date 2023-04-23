@@ -1,0 +1,66 @@
+.Form {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Form h1 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+label {
+  font-size: 20px;
+  margin-bottom: 17px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+select,
+input[type="number"] {
+  width: 100%;
+  padding: 7px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 20%;
+}
+
+button[type="submit"]:hover {
+  background-color: #0069d9;
+}
