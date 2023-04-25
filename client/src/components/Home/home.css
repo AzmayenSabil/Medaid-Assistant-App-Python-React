@@ -43,6 +43,10 @@ button:hover {
   background-color: #00796b;
 }
 
+.button-holder{
+  margin-top: 50px;
+}
+
 /*----*/
 .card {
   width: 1000px;

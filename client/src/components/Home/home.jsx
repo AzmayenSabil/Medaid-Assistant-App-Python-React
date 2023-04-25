@@ -14,7 +14,7 @@ function Home() {
             <p className='about'>We provide doctor's assistant tool to take your history <br></br>
             Please answer a few questions to generate your complete history<br></br>
             This will take just 10 minutes of your time</p>
-            <div>
+            <div className='button-holder'>
               <NavLink to="/form" className="button">Continue</NavLink>
             </div>
         </div>

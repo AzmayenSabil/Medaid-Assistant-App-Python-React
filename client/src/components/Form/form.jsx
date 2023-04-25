@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
+
+
 import './form.css';
 
 import Navbar from '../Navbar/navbar.jsx';
@@ -9,12 +12,15 @@ function Form() {
   const [age, setAge] = useState('');
   const [race, setRace] = useState('');
 
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Name:', name);
     console.log('Gender:', gender);
     console.log('Age:', age);
     console.log('Race:', race);
+    navigate('/complaint')
   };
 
   return (
@@ -51,7 +57,7 @@ function Form() {
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" className='button'>Continue</button>
             </form>
         </div>
     </div>
