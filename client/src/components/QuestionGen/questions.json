@@ -1,0 +1,14 @@
+[
+  {
+    "question": "How long have you had this complaint?",
+    "options": ["Less than 1 day", "1-7 days", "1-4 weeks", "More than 4 weeks"]
+  },
+  {
+    "question": "Do you have any other symptoms?",
+    "options": ["Fever", "Fatigue", "Cough", "Shortness of breath", "None"]
+  },
+  {
+    "question": "Have you taken any medication for this complaint?",
+    "options": ["Yes", "No"]
+  }
+]
