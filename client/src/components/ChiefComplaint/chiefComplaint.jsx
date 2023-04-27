@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import './chiefComplaint.css';
 
 import Navbar from '../Navbar/navbar.jsx';
-import Questions from '../QuestionGen/questions.jsx';
+
 
 function ChiefComplaint() {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [complaints, setComplaints] = useState([]);
   const symptoms = ['Headache', 'Back Pain', 'Cough', 'Fever', 'Sore Throat', 'Fatigue'];
 
   const navigate = useNavigate();
@@ -16,6 +17,10 @@ function ChiefComplaint() {
   useEffect(() => {
     setSuggestions(symptoms);
   }, []);
+
+  useEffect(() => {
+    console.log('Complaints:', complaints);
+  }, [complaints]);
 
   const handleChange = event => {
     const inputValue = event.target.value;
@@ -45,46 +50,65 @@ function ChiefComplaint() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Chief Complaint:', value);
+    
+    setComplaints([...complaints, value]);
+    setValue('');
     setSubmitted(true);
+  };
+
+  const handleDeleteComplaint = (complaint) => {
+    setComplaints(complaints.filter(c => c !== complaint));
   };
 
   return (
     <div>
-        <Navbar />
-        <div className="ChiefComplaint card">
-            <h1>Chief Complaint</h1>
-            {submitted ? (
-              <Questions chiefComplaint={value} />
-            ) : (
-              <form className='form-cc' onSubmit={handleSubmit}>
-                  <div className="form-group-cc">
-                      <label htmlFor="chief-complaint" className='label-cc'>Chief Complaint:</label>
-                      <input
-                          type="text"
-                          id="chief-complaint"
-                          name="chief-complaint"
-                          value={value}
-                          onChange={handleChange}
-                          className='input-cc'
-                      />
-                      {suggestions.length > 0 ? (
-                          <ul className="suggestions">
-                          {suggestions.map(suggestion => (
-                              <li key={suggestion} onClick={() => handleSelectSuggestion(suggestion)}>
-                              {suggestion}
-                              </li>
-                          ))}
-                          </ul>
-                      ) : (
-                          <p>No results found</p>
-                      )}
-                  </div>
-                  <button type="submit" className='button-cc'>Submit</button>
-              </form>
-            )}
+      <Navbar />
+      <div className="ChiefComplaint card">
+        <h1>Chief Complaint</h1>
+        <div className="sidebar">
+          <h2 className="sidebar-h2">Complaints:</h2>
+          <ul className="sidebar-ul">
+            {complaints.map((complaint, index) => (
+              <li key={index} className="sidebar-li">
+                {complaint}
+                <button onClick={() => handleDeleteComplaint(complaint)}>Delete</button>
+              </li>
+            ))}
+          </ul>
         </div>
+        {submitted ? (
+          navigate('/questions', { state: { chiefComplaint: value } })
+        ) : (
+          <form className='form-cc' onSubmit={handleSubmit}>
+            <div className="form-group-cc">
+              <label htmlFor="chief-complaint" className='label-cc'>Chief Complaint:</label>
+              <input
+                type="text"
+                id="chief-complaint"
+                name="chief-complaint"
+                value={value}
+                onChange={handleChange}
+                className='input-cc'
+              />
+              {suggestions.length > 0 ? (
+                <ul className="suggestions">
+                  {suggestions.map(suggestion => (
+                    <li key={suggestion} onClick={() => handleSelectSuggestion(suggestion)}>
+                      {suggestion}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No results found</p>
+              )}
+            </div>
+            <button type="submit" className='button-cc'>Submit</button>
+          </form>
+        )}
+      </div>
     </div>
   );
 }
 
 export default ChiefComplaint;
+

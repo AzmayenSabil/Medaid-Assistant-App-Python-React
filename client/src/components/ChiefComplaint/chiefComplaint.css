@@ -23,7 +23,7 @@
   margin-bottom: 10px;
 }
 
-input[type="text"] .input-cc{
+input[type="text"] > .input-cc{
   font-size: 16px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -42,16 +42,16 @@ input[type="text"] .input-cc{
   overflow-y: auto;
 }
 
-.suggestions li {
+.suggestions > li {
   padding: 10px;
   cursor: pointer;
 }
 
-.suggestions li:hover {
+.suggestions > li:hover {
   background-color: #f5f5f5;
 }
 
-button[type="submit"] .button-cc{
+button[type="submit"] > .button-cc{
   font-size: 20px;
   padding: 10px 20px;
   border: none;
@@ -61,7 +61,7 @@ button[type="submit"] .button-cc{
   cursor: pointer;
 }
 
-button[type="submit"] .button-cc:hover {
+button[type="submit"] > .button-cc:hover {
   background-color: #0069d9;
 }
 

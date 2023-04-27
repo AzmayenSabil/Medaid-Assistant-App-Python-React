@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Question from './question';
+import questionsData from './questions.json';
+import './styles/questions.css'
+
+import Navbar from '../Navbar/navbar.jsx';
 
 function Questions({ chiefComplaint }) {
-  const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
-
-  useEffect(() => {
-    fetch('/questions.json')
-      .then(response => response.json())
-      .then(data => setQuestions(data));
-  }, []);
+  const navigate = useNavigate();
 
   const handleAnswerChange = event => {
     const { name, value } = event.target;
@@ -21,22 +20,36 @@ function Questions({ chiefComplaint }) {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   };
 
+  const handleFinishQuestions = () => {
+    // Do something with the answers here, e.g. send them to a server
+
+    // Navigate to ChiefComplaint component
+    navigate('/complaint');
+  };
+
   return (
     <div>
-      <h2>Chief Complaint: {chiefComplaint}</h2>
-      {questions.length > 0 && currentQuestionIndex < questions.length ? (
-        <Question
-          question={questions[currentQuestionIndex].question}
-          options={questions[currentQuestionIndex].options}
-          onChange={handleAnswerChange}
-        />
-      ) : (
-        <p>Thank you for your answers!</p>
-      )}
-      {currentQuestionIndex < questions.length && (
-        <button onClick={handleNextQuestion}>Next</button>
-      )}
+      <Navbar />
+      <div className='questions card'>
+        <h2 className='questions'>Chief Complaint: {chiefComplaint}</h2>
+        {questionsData.length > 0 && currentQuestionIndex < questionsData.length ? (
+          <Question
+            question={questionsData[currentQuestionIndex].question}
+            options={questionsData[currentQuestionIndex].options}
+            onChange={handleAnswerChange}
+          />
+        ) : (
+          <div>
+            <p className='questions'>Thank you for your answers!</p>
+            <button onClick={handleFinishQuestions} className='questions'>Finish</button>
+          </div>
+        )}
+        {currentQuestionIndex < questionsData.length && (
+          <button onClick={handleNextQuestion} className='questions'>Next</button>
+        )}
+      </div>
     </div>
+    
   );
 }
 

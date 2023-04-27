@@ -1,0 +1,37 @@
+.questions {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.questions > h2{
+    color: red;
+}
+
+button > .questions{
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+button > .questions:hover {
+  background-color: #0069d9;
+}
+
+
+/*----*/
+.card{
+  width: 1000px;
+  height: 70vh;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
