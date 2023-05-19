@@ -1,6 +1,7 @@
-.question div{
+.question div {
   margin: 20px 0;
   font-size: 20px;
+  color: #333;
 }
 
 .question ul {
@@ -11,6 +12,8 @@
 
 .question li {
   margin: 5px 0;
+  font-size: 16px;
+  color: #333;
 }
 
 .question label {
@@ -19,9 +22,28 @@
   cursor: pointer;
   padding: 10px;
   margin: 5px 0;
+  background-color: #f0f0f0;
+  border-radius: 5px;
 }
 
 .question input[type="radio"] {
   margin-right: 5px;
+  background-color: transparent;
+  border: none;
+}
+
+.question label input[type="radio"]:checked + .question label span {
+  color: #000;
+}
+
+.question label span {
+  margin-left: 10px;
+  color: #666;
+}
+
+.question img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 

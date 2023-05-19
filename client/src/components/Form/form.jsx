@@ -20,14 +20,21 @@ function Form() {
     console.log('Gender:', gender);
     console.log('Age:', age);
     console.log('Race:', race);
-    navigate('/complaint')
+    navigate('/complaint', {
+        state: {
+            name: name,
+            gender: gender,
+            age: age,
+            race: race
+        }
+    })
   };
 
   return (
     <div>
         <Navbar />
-        <div className="Form">
-            <h1>Basic Information</h1>
+        <div className="basic-info-form">
+            <h1>Provide Your Personal Information</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name" >Name:</label>

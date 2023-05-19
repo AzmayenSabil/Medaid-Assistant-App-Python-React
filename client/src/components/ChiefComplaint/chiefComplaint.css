@@ -5,6 +5,10 @@
   margin-top: 50px;
 }
 
+.ChiefComplaint h1{
+  margin-bottom: 50px;
+}
+
 .form-cc {
   display: flex;
   flex-direction: column;
@@ -21,9 +25,10 @@
 .label-cc {
   font-size: 20px;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
-input[type="text"] > .input-cc{
+.ChiefComplaint input[type="text"]{
   font-size: 16px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -31,27 +36,27 @@ input[type="text"] > .input-cc{
   width: 400px;
 }
 
-.suggestions {
+.ChiefComplaint .suggestions {
   list-style: none;
   padding: 0;
   margin: 0;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 400px;
+  width: 420px;
   max-height: 120px;
   overflow-y: auto;
 }
 
-.suggestions > li {
+.ChiefComplaint .suggestions li {
   padding: 10px;
   cursor: pointer;
 }
 
-.suggestions > li:hover {
+.ChiefComplaint .suggestions li:hover {
   background-color: #f5f5f5;
 }
 
-button[type="submit"] > .button-cc{
+.ChiefComplaint button[type="submit"]{
   font-size: 20px;
   padding: 10px 20px;
   border: none;
@@ -61,16 +66,16 @@ button[type="submit"] > .button-cc{
   cursor: pointer;
 }
 
-button[type="submit"] > .button-cc:hover {
+.ChiefComplaint button[type="submit"]:hover {
   background-color: #0069d9;
 }
 
-.button-cc{
+.ChiefComplaint .button-cc{
     margin-top: 50px;
 }
 
 /*----*/
-.card {
+.ChiefComplaint .card {
   width: 1000px;
   height: 70vh;
   margin: 50px auto;

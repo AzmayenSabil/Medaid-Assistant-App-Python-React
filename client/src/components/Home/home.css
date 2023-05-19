@@ -7,27 +7,22 @@
   background-color: #f5f5f5;
 }
 
-h3 {
-  font-size: 2rem;
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
+.greeting span{
+  color: red;
 }
 
-
-h1 {
+.Home h1 {
   font-size: 3rem;
   margin-top: 0;
   margin-bottom: 20px;
 }
 
-p {
+.Home p {
   font-size: 1.5rem;
   margin-bottom: 50px;
 }
 
-.button {
+.Home .button {
   padding: 10px 20px;
   font-size: 1.2rem;
   background-color: #009688;
@@ -39,16 +34,16 @@ p {
   text-decoration: none;
 }
 
-button:hover {
+.Home button:hover {
   background-color: #00796b;
 }
 
-.button-holder{
+.Home .button-holder{
   margin-top: 50px;
 }
 
 /*----*/
-.card {
+.Home .card {
   width: 1000px;
   height: 70vh;
   margin: 120px auto;

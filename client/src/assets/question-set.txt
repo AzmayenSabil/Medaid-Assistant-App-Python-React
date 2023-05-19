@@ -14,7 +14,10 @@
         "Do you have a runny nose?",
         "Do you have a fever?",
         "Are you sneezing?",
-        "Do you have a cough?"
+        "Do you have a sore throat?",
+        "Do you have a cough?",
+        "Do you have a headache?",
+        "Do you have body aches?",
       ],
       "options": ["Yes", "No"]
     },
@@ -31,11 +34,32 @@
         "Diarrhea"
       ],
       "questions": [
+        "Do you have a fever?",
+        "Do you have a headache?",
+        "Are you coughing?",
+        "Do you have a sore throat?",
         "Do you have muscle aches?",
         "Do you have chills?",
         "Are you nauseous?",
-        "Have you had diarrhea?"
+        "Have you had diarrhea?",
       ],
       "options": ["Yes", "No"]
     }
+]
+
+
+//----prev version
+[
+  {
+    "question": "How long have you had this complaint?",
+    "options": ["Less than 1 day", "1-7 days", "1-4 weeks", "More than 4 weeks"]
+  },
+  {
+    "question": "Do you have any other symptoms?",
+    "options": ["Fever", "Fatigue", "Cough", "Shortness of breath", "None"]
+  },
+  {
+    "question": "Have you taken any medication for this complaint?",
+    "options": ["Yes", "No"]
+  }
 ]

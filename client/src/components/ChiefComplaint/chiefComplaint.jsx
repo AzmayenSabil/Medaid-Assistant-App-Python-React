@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './chiefComplaint.css';
 
 import Navbar from '../Navbar/navbar.jsx';
 
 
 function ChiefComplaint() {
+
+  const location = useLocation();
+
+  console.log("From useLocation state - info", location.state)
+  // const info = location.state;
+
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [complaints, setComplaints] = useState([]);
-  const symptoms = ['Headache', 'Back Pain', 'Cough', 'Fever', 'Sore Throat', 'Fatigue'];
+  const symptoms = ['Headache', 'Back Pain', 'Cough', 'Fever', 'Sore Throat', 'Fatigue', 'Body aches'];
 
   const navigate = useNavigate();
 
@@ -54,34 +60,25 @@ function ChiefComplaint() {
     setComplaints([...complaints, value]);
     setValue('');
     setSubmitted(true);
-  };
-
-  const handleDeleteComplaint = (complaint) => {
-    setComplaints(complaints.filter(c => c !== complaint));
+    
+    navigate('/questions', {
+        state: {
+            chiefComplaint: value
+        }
+    });
   };
 
   return (
     <div>
       <Navbar />
       <div className="ChiefComplaint card">
-        <h1>Chief Complaint</h1>
-        <div className="sidebar">
-          <h2 className="sidebar-h2">Complaints:</h2>
-          <ul className="sidebar-ul">
-            {complaints.map((complaint, index) => (
-              <li key={index} className="sidebar-li">
-                {complaint}
-                <button onClick={() => handleDeleteComplaint(complaint)}>Delete</button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <h1>What's Your Chief Complaint ?</h1>
         {submitted ? (
-          navigate('/questions', { state: { chiefComplaint: value } })
+          console.log("submitted complaint")
         ) : (
           <form className='form-cc' onSubmit={handleSubmit}>
             <div className="form-group-cc">
-              <label htmlFor="chief-complaint" className='label-cc'>Chief Complaint:</label>
+              <label htmlFor="chief-complaint" className='label-cc'>Chief Complaint</label>
               <input
                 type="text"
                 id="chief-complaint"
@@ -90,6 +87,7 @@ function ChiefComplaint() {
                 onChange={handleChange}
                 className='input-cc'
               />
+              <br></br>
               {suggestions.length > 0 ? (
                 <ul className="suggestions">
                   {suggestions.map(suggestion => (
@@ -108,7 +106,7 @@ function ChiefComplaint() {
       </div>
     </div>
   );
+
 }
 
 export default ChiefComplaint;
-
