@@ -1,0 +1,648 @@
+[
+  {
+    "ChestPain": {
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "Is the chest pain constant or intermittent?",
+          "options": [
+            {
+              "text": "Constant",
+              "next": "Q2"
+            },
+            {
+              "text": "Intermittent",
+              "next": "Q7"
+            }
+          ]
+        },
+        {
+          "id": "Q2",
+          "question": "Is there associated significant hypertension?",
+          "options": [
+            {
+              "text": "Yes",
+              "next": "Q3"
+            },
+            {
+              "text": "No",
+              "next": "Q5"
+            }
+          ]
+        },
+        {
+          "id": "Q3",
+          "question": "Dissecting Aneurysm"
+        },
+        {
+          "id": "Q4",
+          "question": "Myocardial Infarction"
+        },
+        {
+          "id": "Q5",
+          "question": "Is the pain relieved by antacids?",
+          "options": [
+            {
+              "text": "Yes",
+              "next": "Q6"
+            },
+            {
+              "text": "No",
+              "next": "Q9"
+            }
+          ]
+        },
+        {
+          "id": "Q6",
+          "question": "Reflux Esophagitis"
+        },
+        {
+          "id": "Q7",
+          "question": "Precipitated or increased by breathing?",
+          "options": [
+            {
+              "text": "Yes",
+              "next": "Q8"
+            },
+            {
+              "text": "No",
+              "next": "Q10"
+            }
+          ]
+        },
+        {
+          "id": "Q8",
+          "question": "Pleurisy"
+        },
+        {
+          "id": "Q9",
+          "question": "Is the pain not relieved by antacids?",
+          "options": [
+            {
+              "text": "With Hemoptysis",
+              "next": "Q11"
+            },
+            {
+              "text": "Without Hemoptysis",
+              "next": "Q12"
+            }
+          ]
+        },
+        {
+          "id": "Q10",
+          "question": "Not affected by breathing and relieved by nitroglycerin?",
+          "options": [
+            {
+              "text": "Lasting two minutes or less",
+              "next": "Q13"
+            },
+            {
+              "text": "Lasting more than two minutes",
+              "next": "Q15"
+            }
+          ]
+        },
+        {
+          "id": "Q11",
+          "question": "With fever and purulent sputum",
+          "options": [
+            {
+              "text": "Yes",
+              "next": "Q14"
+            },
+            {
+              "text": "No",
+              "next": "Q16"
+            }
+          ]
+        },
+        {
+          "id": "Q12",
+          "question": "Without Hemoptysis",
+          "options": [
+            {
+              "text": "With fever and purulent",
+              "next": "Q17"
+            },
+            {
+              "text": "Without fever and purulent",
+              "next": "Q19"
+            }
+          ]
+        },
+        {
+          "id": "Q13",
+          "question": "Angina pectoris"
+        },
+        {
+          "id": "Q14",
+          "question": "Pneumonia"
+        },
+        {
+          "id": "Q15",
+          "question": "Coronary insufficiency"
+        },
+        {
+          "id": "Q16",
+          "question": "Not Aggravated by movement",
+          "options": [
+            {
+              "text": "Panic disorder"
+            },
+            {
+              "text": "Myocardial Infarction"
+            }
+          ]
+        },
+        {
+          "id": "Q17",
+          "question": "Aggravated by movement",
+          "options": [
+            {
+              "text": "Pericarditis"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Dyspnea": {
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "Is there chest pain?",
+          "options": [
+            {
+              "text": "Yes",
+              "next": "Q2"
+            },
+            {
+              "text": "No",
+              "next": "Q5"
+            }
+          ]
+        },
+        {
+          "id": "Q2",
+          "question": "Hemoptysis (the coughing up of blood)",
+          "options": [
+            {
+              "text": "Yes",
+              "next": "Q3"
+            },
+            {
+              "text": "No",
+              "next": "Q4"
+            }
+          ]
+        },
+        {
+          "id": "Q3",
+          "question": "Pulmonary embolism"
+        },
+        {
+          "id": "Q4",
+          "question": "No hemoptysis",
+          "options": [
+            {
+              "text": "trachea displaced",
+              "next": "Q6"
+            },
+            {
+              "text": "trachea not displaced",
+              "next": "Q7"
+            }
+          ]
+        },
+        {
+          "id": "Q5",
+          "question": "Fever or purulent sputum",
+          "options": [
+            {
+              "text": "Yes",
+              "next": "Q8"
+            },
+            {
+              "text": "No",
+              "next": "Q11"
+            }
+          ]
+        },
+        {
+          "id": "Q6",
+          "question": "Pneumothorax"
+        },
+        {
+          "id": "Q7",
+          "question": "Myocardial infarction"
+        },
+        {
+          "id": "Q8",
+          "question": "No Fever or purulent sputum",
+          "options": [
+            {
+              "text": "Wheezing?",
+              "next": "Q9"
+            },
+            {
+              "text": "No wheezing?",
+              "next": "Q10"
+            }
+          ]
+        },
+        {
+          "id": "Q9",
+          "question": "Asthma"
+        },
+        {
+          "id": "Q10",
+          "question": "Emphysema"
+        },
+        {
+          "id": "Q11",
+          "question": "Cardiac asthma"
+        }
+      ]
+    }
+  },
+  {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Have cardiomegaly (enlarged heart)?",
+        "options": [
+          {
+            "text": "Yes",
+            "next": "q2"
+          },
+          {
+            "text": "No",
+            "next": "q9"
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "question": "Murmur",
+        "options": [
+          {
+            "text": "No fever",
+            "next": "q3"
+          },
+          {
+            "text": "Fever",
+            "next": "q6"
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "question": "Chronic valvular disease",
+        "options": []
+      },
+      {
+        "id": "q6",
+        "question": "Fever Causes",
+        "options": [
+          {
+            "text": "Rheumatic fever",
+            "next": "q4"
+          },
+          {
+            "text": "Bacterial endocarditis",
+            "next": "q5"
+          },
+          {
+            "text": "Any infectious disease",
+            "next": "q5"
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "question": "No fever",
+        "options": [
+          {
+            "text": "Infectious disease",
+            "next": "q7"
+          },
+          {
+            "text": "Hyperthyroidism",
+            "next": "q8"
+          }
+        ]
+      },
+      {
+        "id": "q5",
+        "question": "Fever",
+        "options": [
+          {
+            "text": "Infectious disease",
+            "next": "q7"
+          },
+          {
+            "text": "Hyperthyroidism",
+            "next": "q8"
+          }
+        ]
+      },
+      {
+        "id": "q7",
+        "question": "Hypertension",
+        "options": [
+          {
+            "text": "Pheochromocytoma",
+            "next": "q8"
+          },
+          {
+            "text": "Hyperthyroidism",
+            "next": "q8"
+          }
+        ]
+      },
+      {
+        "id": "q8",
+        "question": "No Hypertension",
+        "options": [
+          {
+            "text": "Caffeine",
+            "next": "q9"
+          },
+          {
+            "text": "Other drugs",
+            "next": "q9"
+          },
+          {
+            "text": "Hypoglycemia",
+            "next": "q9"
+          },
+          {
+            "text": "Prolapse",
+            "next": "q9"
+          },
+          {
+            "text": "Menopause",
+            "next": "q9"
+          },
+          {
+            "text": "Panic disorder",
+            "next": "q9"
+          }
+        ]
+      },
+      {
+        "id": "q9",
+        "question": "End of Decision Tree",
+        "options": []
+      }
+    ]
+  },
+  {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Have convulsive movements?",
+        "options": [
+          {
+            "text": "Yes",
+            "next": "q2"
+          },
+          {
+            "text": "No",
+            "next": "q7"
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "question": "Incontinence &/ Tongue biting",
+        "options": [
+          {
+            "text": "No history of drugs or alcohol",
+            "next": "q3"
+          },
+          {
+            "text": "History of drugs or alcohol",
+            "next": "q6"
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "question": "With Fever",
+        "options": [
+          {
+            "text": "Febrile Convulsions",
+            "next": "q4"
+          },
+          {
+            "text": "Encephalitis",
+            "next": "q4"
+          },
+          {
+            "text": "Cerebral Abscess",
+            "next": "q4"
+          },
+          {
+            "text": "Meningitis",
+            "next": "q4"
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "question": "No Fever",
+        "options": [
+          {
+            "text": "No Focal Neurologic Signs",
+            "next": "q5"
+          },
+          {
+            "text": "Focal Neurological Signs/Papilledema",
+            "next": "q5"
+          }
+        ]
+      },
+      {
+        "id": "q5",
+        "question": "End of Decision Tree",
+        "options": []
+      },
+      {
+        "id": "q6",
+        "question": "End of Decision Tree",
+        "options": []
+      },
+      {
+        "id": "q7",
+        "question": "Slow or Absent Pulse",
+        "options": [
+          {
+            "text": "Rate below 45",
+            "next": "q8"
+          },
+          {
+            "text": "Rate above 50",
+            "next": "q9"
+          },
+          {
+            "text": "Normal Pulse",
+            "next": "q12"
+          }
+        ]
+      },
+      {
+        "id": "q8",
+        "question": "Heart Block",
+        "options": [
+          {
+            "text": "End of Decision Tree",
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "q9",
+        "question": "Heart Murmur",
+        "options": [
+          {
+            "text": "Aortic Stenosis",
+            "next": "q10"
+          },
+          {
+            "text": "Aortic Insufficiency",
+            "next": "q10"
+          },
+          {
+            "text": "Cyanotic Congenital Heart Disease",
+            "next": "q10"
+          },
+          {
+            "text": "No Heart Murmur",
+            "next": "q11"
+          }
+        ]
+      },
+      {
+        "id": "q10",
+        "question": "End of Decision Tree",
+        "options": []
+      },
+      {
+        "id": "q11",
+        "question": "Pallor",
+        "options": [
+          {
+            "text": "Severe Anemia/ Bleeding",
+            "next": "q13"
+          },
+          {
+            "text": "No Pallor",
+            "next": "q14"
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "question": "End of Decision Tree",
+        "options": []
+      },
+      {
+        "id": "q13",
+        "question": "End of Decision Tree",
+        "options": []
+      },
+      {
+        "id": "q14",
+        "question": "Focal Neurologic signs",
+        "options": [
+          {
+            "text": "Cerebrovascular Insufficiency",
+            "next": "q15"
+          },
+          {
+            "text": "Hypoglycemia",
+            "next": "q15"
+          },
+          {
+            "text": "Transient Ischemic attacks",
+            "next": "q15"
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "question": "End of Decision Tree",
+        "options": []
+      }
+    ]
+  },
+  {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Have pitting?",
+        "options": [
+          {
+            "text": "Yes",
+            "next": "q2"
+          },
+          {
+            "text": "No",
+            "next": "q12"
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "question": "Hepatomegaly",
+        "options": [
+          {
+            "text": "Ascites",
+            "next": "q3"
+          },
+          {
+            "text": "No Ascites",
+            "next": "q5"
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "question": "Cirrhosis",
+        "options": [
+          {
+            "text": "End of Decision Tree",
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "q5",
+        "question": "Congestive Heart Failure",
+        "options": [
+          {
+            "text": "End of Decision Tree",
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "question": "No Pitting",
+        "options": [
+          {
+            "text": "Myxedema",
+            "next": "q13"
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "question": "End of Decision Tree",
+        "options": []
+      }
+    ]
+  }
+]
