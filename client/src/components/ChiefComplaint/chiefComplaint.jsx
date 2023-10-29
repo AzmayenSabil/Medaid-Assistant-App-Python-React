@@ -7,7 +7,7 @@ import Navbar from "../navbar/Navbar.jsx";
 function ChiefComplaint() {
   const location = useLocation();
 
-  console.log(location.state);
+  // console.log(location.state);
 
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -38,7 +38,7 @@ function ChiefComplaint() {
   }, []);
 
   useEffect(() => {
-    console.log("Complaints:", complaints);
+    // console.log("Complaints:", complaints);
   }, [complaints]);
 
   const handleChange = (event) => {
