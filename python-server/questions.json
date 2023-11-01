@@ -1,17 +1,491 @@
 {
-    "cardiology": [
-        "Have you ever been diagnosed with high blood pressure? (yes/no) ",
-        "Have you ever had a heart attack? (yes/no) ",
-        "Do you experience chest pain or discomfort? (yes/no) "
-    ],
-    "gastroenterology": [
-        "Do you have any history of stomach ulcers? (yes/no) ",
-        "Do you experience bloating or abdominal pain? (yes/no) ",
-        "Have you experienced any changes in bowel habits? (yes/no) "
-    ],
-    "dermatology": [
-        "Do you have any history of eczema or psoriasis? (yes/no) ",
-        "Have you experienced any rashes or itching? (yes/no) ",
-        "Do you have any moles or spots that have changed in appearance? (yes/no) "
-    ]
+  "general_questions": {
+    "family_history": {
+      "Q1": {
+        "question": "Does anyone in your family have a history of heart disease or stroke?",
+        "answer": null,
+        "type": "yes/no"
+      }
+    },
+    "past_history": {
+      "Q2": {
+        "question": "Have you ever had any heart problems before? Have you ever had high blood pressure or high cholesterol?",
+        "answer": null,
+        "type": "yes/no"
+      }
+    },
+    "age": {
+      "Q3": {
+        "question": "How old are you?",
+        "answer": null,
+        "type": "dropdown",
+        "options": [
+          "< 18",
+          "18-30",
+          "31-40",
+          "41-50",
+          "> 50"
+        ]
+      }
+    },
+    "gender": {
+      "Q4": {
+        "question": "What is your gender?",
+        "answer": null,
+        "type": "dropdown",
+        "options": [
+          "Male",
+          "Female",
+          "Other"
+        ]
+      }
+    },
+    "drug_history": {
+      "Q5": {
+        "question": "Are you taking any medications for your heart or blood pressure? Have you ever taken any medications for your heart or blood pressure?",
+        "answer": null,
+        "type": "yes/no"
+      },
+      "drug_list": {"note": "if yes show a list of related drugs to choose from"}
+    },
+    "alcohol": {
+      "Q6": {
+        "question": "Do you drink alcohol?",
+        "answer": null,
+        "type": "yes/no"
+      }
+    },
+    "smoking": {
+      "Q7": {
+        "question": "Do you smoke?",
+        "answer": null,
+        "type": "yes/no"
+      }
+    }
+  },
+  "specific_questions": [
+    {
+        "id": "s1",
+        "symptom": "Angina",
+        "questions": [
+            {"id": "q1", "question": "Site: Where do you feel the chest pain?", "type": "Open-ended"},
+            {"id": "q2", "question": "Onset: When did the chest pain start?", "type": "Open-ended"},
+            {"id": "q3", "question": "Character: How would you describe the chest pain (e.g., sharp, squeezing, burning)?", "type": "Open-ended"},
+            {"id": "q4", "question": "Radiation: Does the chest pain spread to any other areas?", "type": "Yes/No"},
+            {"id": "q5", "question": "Associations: Are there any other symptoms associated with the chest pain (e.g., shortness of breath, sweating)?", "type": "Open-ended"},
+            {"id": "q6", "question": "Time course: How long does the chest pain usually last?", "type": "Open-ended"},
+            {"id": "q7", "question": "Exacerbating/Relieving factors: What makes the chest pain better or worse?", "type": "Open-ended"}
+        ]
+    },
+    {
+        "id": "s2",
+        "symptom": "Dyspnea",
+        "questions": [
+            {"id": "q1", "question": "Site: Where do you feel the shortness of breath?", "type": "Open-ended"},
+            {"id": "q2", "question": "Onset: When did the shortness of breath start?", "type": "Open-ended"},
+            {"id": "q3", "question": "Character: How would you describe the shortness of breath (e.g., difficulty breathing, rapid breathing)?", "type": "Open-ended"},
+            {"id": "q4", "question": "Radiation: Does the shortness of breath spread to any other areas?", "type": "Yes/No"},
+            {"id": "q5", "question": "Associations: Are there any other symptoms associated with the shortness of breath (e.g., chest pain, wheezing)?", "type": "Open-ended"},
+            {"id": "q6", "question": "Time course: How long does the shortness of breath usually last?", "type": "Open-ended"},
+            {"id": "q7", "question": "Exacerbating/Relieving factors: What makes the shortness of breath better or worse?", "type": "Open-ended"}
+        ]
+    },
+    {
+        "id": "s3",
+        "symptom": "Chest pain",
+        "questions": [
+            {"id": "q1", "question": "Site: Where do you feel the chest pain?", "type": "Open-ended"},
+            {"id": "q2", "question": "Onset: When did the chest pain start?", "type": "Open-ended"},
+            {"id": "q3", "question": "Character: How would you describe the chest pain (e.g., sharp, squeezing, burning)?", "type": "Open-ended"},
+            {"id": "q4", "question": "Radiation: Does the chest pain spread to any other areas?", "type": "Yes/No"},
+            {"id": "q5", "question": "Associations: Are there any other symptoms associated with the chest pain (e.g., shortness of breath, sweating)?", "type": "Open-ended"},
+            {"id": "q6", "question": "Time course: How long does the chest pain usually last?", "type": "Open-ended"},
+            {"id": "q7", "question": "Exacerbating/Relieving factors: What makes the chest pain better or worse?", "type": "Open-ended"}
+        ]
+    },
+   {
+        "id": "s4",
+        "symptom": "Pressure or squeezing in the chest",
+        "questions": [
+            {"id": "q1", "question": "Site: Where do you feel the pressure or squeezing in the chest?", "type": "Open-ended"},
+            {"id": "q2", "question": "Onset: When did the sensation start?", "type": "Open-ended"},
+            {"id": "q3", "question": "Character: How would you describe the sensation (e.g., tightness, heaviness)?", "type": "Open-ended"},
+            {"id": "q4", "question": "Radiation: Does the sensation spread to any other areas?", "type": "Yes/No"},
+            {"id": "q5", "question": "Associations: Are there any other symptoms associated with the sensation (e.g., shortness of breath, sweating)?", "type": "Open-ended"},
+            {"id": "q6", "question": "Time course: How long does the sensation usually last?", "type": "Open-ended"},
+            {"id": "q7", "question": "Exacerbating/Relieving factors: What makes the sensation better or worse?", "type": "Open-ended"}
+        ]
+    },
+    {
+        "id": "s5",
+        "symptom": "Lightheadedness",
+        "questions": [
+            {"id": "q1", "question": "Site: Where do you feel lightheaded?", "type": "Open-ended"},
+            {"id": "q2", "question": "Onset: When did the lightheadedness start?", "type": "Open-ended"},
+            {"id": "q3", "question": "Character: How would you describe the lightheadedness (e.g., feeling faint, dizzy)?", "type": "Open-ended"},
+            {"id": "q4", "question": "Associations: Are there any other symptoms associated with lightheadedness (e.g., nausea, blurred vision)?", "type": "Open-ended"},
+            {"id": "q5", "question": "Time course: How long does the lightheadedness usually last?", "type": "Open-ended"},
+            {"id": "q6", "question": "Exacerbating/Relieving factors: What makes the lightheadedness better or worse?", "type": "Open-ended"}
+        ]
+    },
+    {
+        "id": "s6",
+        "symptom": "Heartburn",
+        "questions": [
+            {"id": "q1", "question": "Site: Where do you feel the heartburn?", "type": "Open-ended"},
+            {"id": "q2", "question": "Onset: When did the heartburn start?", "type": "Open-ended"},
+            {"id": "q3", "question": "Character: How would you describe the heartburn (e.g., burning sensation in the chest, throat)?", "type": "Open-ended"},
+            {"id": "q4", "question": "Associations: Are there any other symptoms associated with heartburn (e.g., regurgitation of food, sour taste in mouth)?", "type": "Open-ended"},
+            {"id": "q5", "question": "Time course: How long does the heartburn usually last?", "type": "Open-ended"},
+            {"id": "q6", "question": "Exacerbating/Relieving factors: What makes the heartburn better or worse?", "type": "Open-ended"}
+        ]
+    },
+    {
+        "id": "s7",
+        "symptom": "Wheezing",
+        "questions": [
+            {"id": "q1", "question": "Site: Where do you experience wheezing?", "type": "Open-ended"},
+            {"id": "q2", "question": "Onset: When did the wheezing start?", "type": "Open-ended"},
+            {"id": "q3", "question": "Character: How would you describe the wheezing (e.g., high-pitched whistling sound during breathing)?", "type": "Open-ended"},
+            {"id": "q4", "question": "Associations: Are there any other symptoms associated with wheezing (e.g., shortness of breath, cough)?", "type": "Open-ended"},
+            {"id": "q5", "question": "Time course: How long does the wheezing usually last?", "type": "Open-ended"},
+            {"id": "q6", "question": "Exacerbating/Relieving factors: What makes the wheezing better or worse?", "type": "Open-ended"}
+        ]
+    },
+    {
+        "id": "s8",
+        "symptom": "Asthma",
+        "questions": {
+            "q1": {"question": "Site: Where do you feel the symptoms of asthma?", "type": "Open-ended"},
+            "q2": {"question": "Onset: When did the asthma symptoms start?", "type": "Open-ended"},
+            "q3": {"question": "Character: How would you describe the asthma symptoms (e.g., difficulty breathing, chest tightness)?", "type": "Open-ended"},
+            "q4": {"question": "Associations: Are there any other symptoms associated with asthma (e.g., wheezing, cough)?", "type": "Open-ended"},
+            "q5": {"question": "Time course: How long do the asthma symptoms usually last?", "type": "Open-ended"},
+            "q6": {"question": "Exacerbating/Relieving factors: What makes the asthma symptoms better or worse?", "type": "Open-ended"}
+        }
+    },
+    {
+        "id": "s9",
+        "symptom": "Dizziness",
+        "questions": {
+            "q1": {"question": "Site: Where do you feel the dizziness?", "type": "Open-ended"},
+            "q2": {"question": "Onset: When did the dizziness start?", "type": "Open-ended"},
+            "q3": {"question": "Character: How would you describe the dizziness (e.g., feeling lightheaded, spinning sensation)?", "type": "Open-ended"},
+            "q4": {"question": "Associations: Are there any other symptoms associated with dizziness (e.g., nausea, visual disturbances)?", "type": "Open-ended"},
+            "q5": {"question": "Time course: How long does the dizziness usually last?", "type": "Open-ended"},
+            "q6": {"question": "Exacerbating/Relieving factors: What makes the dizziness better or worse?", "type": "Open-ended"}
+        }
+    },
+    {
+        "id": "s10",
+        "symptom": "Fainting",
+        "questions": {
+            "q1": {"question": "Site: Where did you faint?", "type": "Open-ended"},
+            "q2": {"question": "Onset: When did the fainting episode happen?", "type": "Open-ended"},
+            "q3": {"question": "Character: How would you describe the fainting episode (e.g., sudden loss of consciousness, feeling weak)?", "type": "Open-ended"},
+            "q4": {"question": "Associations: Are there any other symptoms associated with fainting (e.g., dizziness, sweating)?", "type": "Open-ended"},
+            "q5": {"question": "Time course: How long did the fainting episode last?", "type": "Open-ended"},
+            "q6": {"question": "Exacerbating/Relieving factors: What do you think triggered the fainting episode?", "type": "Open-ended"}
+        }
+    },
+    {
+        "id": "s11",
+        "symptom": "Decreased urine output",
+        "questions": {
+            "q1": {"question": "Site: Do you experience any discomfort while passing urine?", "type": "Open-ended"},
+            "q2": {"question": "Onset: When did you notice a decrease in urine output?", "type": "Open-ended"},
+            "q3": {"question": "Character: How would you describe the change in urine output (e.g., reduced amount, painful urination)?", "type": "Open-ended"},
+            "q4": {"question": "Associations: Are there any other symptoms associated with decreased urine output (e.g., lower back pain, swelling in legs)?", "type": "Open-ended"},
+            "q5": {"question": "Time course: How long have you noticed this change in urine output?", "type": "Open-ended"},
+            "q6": {"question": "Exacerbating/Relieving factors: What factors seem to affect your urine output?", "type": "Open-ended"}
+        }
+    },
+    {
+        "id": "s12",
+        "symptom": "Nocturia",
+        "questions": [
+            {"id": "q1", "question": "Site: Do you experience any discomfort while passing urine at night?", "type": "Open-ended"},
+            {"id": "q2", "question": "Onset: When did you start waking up at night to urinate?", "type": "Open-ended"},
+            {"id": "q3", "question": "Character: How would you describe the nocturia (e.g., frequent urination, urgency)?", "type": "Open-ended"},
+            {"id": "q4", "question": "Associations: Are there any other symptoms associated with nocturia (e.g., daytime fatigue, increased thirst)?", "type": "Open-ended"},
+            {"id": "q5", "question": "Time course: How long have you been experiencing nocturia?", "type": "Open-ended"},
+            {"id": "q6", "question": "Exacerbating/Relieving factors: What factors seem to worsen or alleviate nocturia?", "type": "Open-ended"}
+        ]
+    },
+    {
+      "id": "s13",
+      "symptom": "Edema",
+      "questions": [
+        {"id": "q1", "question": "Site: Where is the swelling located (e.g., legs, ankles, hands)?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did you notice the swelling?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the edema (e.g., pitting, non-pitting)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Associations: Are there any other symptoms associated with the edema (e.g., shortness of breath, weight gain)?", "type": "Open-ended"},
+        {"id": "q5", "question": "Time course: How long have you had the swelling?", "type": "Open-ended"},
+        {"id": "q6", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the edema?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s14",
+      "symptom": "Shortness of breath",
+      "questions": [
+        {"id": "q1", "question": "Site: Where do you feel the shortness of breath?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did the shortness of breath start?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the shortness of breath (e.g., difficulty breathing, rapid breathing)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Does the shortness of breath spread to any other areas?", "type": "Open-ended"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the shortness of breath (e.g., chest pain, wheezing)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long does the shortness of breath usually last?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What makes the shortness of breath better or worse?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s15",
+      "symptom": "Palpitations",
+      "questions": [
+        {"id": "q1", "question": "Site: Where do you feel the palpitations?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did the palpitations start?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the palpitations (e.g., skipping beats, rapid heartbeats)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Associations: Are there any triggers for palpitations (e.g., stress, exercise)?", "type": "Open-ended"},
+        {"id": "q5", "question": "Time course: How long do the palpitations typically last?", "type": "Open-ended"},
+        {"id": "q6", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the palpitations?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s16",
+      "symptom": "Fatigue",
+      "questions": [
+        {"id": "q1", "question": "Site: Do you experience fatigue throughout your body?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did you start feeling fatigued?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the fatigue (e.g., constant tiredness, lack of energy)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Associations: Are there any other symptoms associated with fatigue (e.g., shortness of breath, weakness)?", "type": "Open-ended"},
+        {"id": "q5", "question": "Time course: How long have you been experiencing fatigue?", "type": "Open-ended"},
+        {"id": "q6", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the fatigue?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s17",
+      "symptom": "Swelling in the hands and feet",
+      "questions": [
+        {"id": "q1", "question": "Site: Where is the swelling located (e.g., hands, feet)?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did you notice the swelling?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the swelling (e.g., pitting, non-pitting)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Associations: Are there any other symptoms associated with the swelling (e.g., shortness of breath, weight gain)?", "type": "Open-ended"},
+        {"id": "q5", "question": "Time course: How long have you had the swelling?", "type": "Open-ended"},
+        {"id": "q6", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the swelling?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s18",
+      "symptom": "Depression",
+      "questions": [
+        {"id": "q1", "question": "Site: How do you experience depression (e.g., feelings of sadness, hopelessness)?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did you start feeling depressed?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe your mood (e.g., low, irritable)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Associations: Are there any triggers for your depression (e.g., specific events, changes in life)?", "type": "Open-ended"},
+        {"id": "q5", "question": "Time course: How long have you been experiencing depression?", "type": "Open-ended"},
+        {"id": "q6", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate your depression?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s19",
+      "symptom": "Anxiety",
+      "questions": [
+        {"id": "q1", "question": "Site: How do you experience anxiety (e.g., feelings of worry, nervousness)?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did you start feeling anxious?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe your anxiety (e.g., constant, intermittent)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Associations: Are there any triggers for your anxiety (e.g., specific situations, stressors)?", "type": "Open-ended"},
+        {"id": "q5", "question": "Time course: How long have you been experiencing anxiety?", "type": "Open-ended"},
+        {"id": "q6", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate your anxiety?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s20",
+      "symptom": "High blood pressure",
+      "questions": [
+        {"id": "q1", "question": "Site: Have you measured your blood pressure?", "type": "Yes/No"},
+        {"id": "q2", "question": "Onset: When did you first become aware of having high blood pressure?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe your blood pressure readings (e.g., consistently high, fluctuating)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Associations: Are there any other symptoms associated with your high blood pressure?", "type": "Open-ended"},
+        {"id": "q5", "question": "Time course: How long have you known about your high blood pressure?", "type": "Open-ended"},
+        {"id": "q6", "question": "Exacerbating/Relieving factors: What seems to affect your blood pressure readings (e.g., stress, medications)?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s21",
+      "symptom": "Headaches",
+      "questions": [
+        {"id": "q1", "question": "Site: Where do you usually experience headaches?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did the headaches start?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the headaches (e.g., throbbing, dull, sharp)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Do the headaches spread to any other areas?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the headaches (e.g., nausea, visual changes)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long do the headaches typically last?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the headaches?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s22",
+      "symptom": "Swelling in the legs",
+      "questions": [
+        {"id": "q1", "question": "Site: Where is the swelling located in your legs (e.g., thighs, calves)?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did you first notice the swelling in your legs?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the swelling (e.g., pitting, non-pitting, soft, hard)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Does the swelling spread to any other areas of your body?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the swelling in your legs (e.g., pain, discoloration)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long have you had the swelling in your legs?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the swelling in your legs?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s23",
+      "symptom": "Leg pain",
+      "questions": [
+        {"id": "q1", "question": "Site: Where in your legs do you experience pain?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did the leg pain start?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the leg pain (e.g., sharp, dull, cramping)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Does the pain spread to any other areas?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the leg pain (e.g., swelling, weakness)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long does the leg pain typically last?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the leg pain?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s24",
+      "symptom": "Night leg pain",
+      "questions": [
+        {"id": "q1", "question": "Site: Where in your legs do you experience pain at night?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did the night leg pain start?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the pain (e.g., cramping, throbbing, aching)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Does the pain spread to any other areas?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the night leg pain (e.g., restlessness, tingling)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long does the night leg pain usually last?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the night leg pain?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s25",
+      "symptom": "Vision problem",
+      "questions": [
+        {"id": "q1", "question": "Site: Which eye or eyes are affected by the vision problem?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did you first notice the vision problem?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the vision problem (e.g., blurriness, double vision, loss of vision)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Does the vision problem affect other visual fields?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the vision problem (e.g., eye pain, headaches)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long does the vision problem usually last?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the vision problem?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s26",
+      "symptom": "Numbness or tingling in the hands or feet",
+      "questions": [
+        {"id": "q1", "question": "Site: Where do you experience the numbness or tingling (e.g., hands, fingers, feet, toes)?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did the numbness or tingling start?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the sensation (e.g., pins and needles, loss of sensation)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Does the sensation spread to any other areas?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the numbness or tingling (e.g., weakness, difficulty gripping objects)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long does the numbness or tingling usually last?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the numbness or tingling?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s27",
+      "symptom": "Changes in vision",
+      "questions": [
+        {"id": "q1", "question": "Site: What specific changes have you noticed in your vision?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did the changes in vision start?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the changes (e.g., halos around lights, flashes of light, sudden loss of vision)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Do the changes affect other visual fields?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the changes in vision (e.g., eye pain, floaters)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long do the changes in vision typically last?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the changes in vision?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s28",
+      "symptom": "Rapid weight gain",
+      "questions": [
+        {"id": "q1", "question": "Site: Where have you noticed the weight gain?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did you first notice the rapid weight gain?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the weight gain (e.g., sudden, gradual, localized, generalized)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Does the weight gain affect other parts of your body?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the rapid weight gain (e.g., swelling, shortness of breath)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How quickly has the weight gain occurred?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the rapid weight gain?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s29",
+      "symptom": "Blue fingernails",
+      "questions": [
+        {"id": "q1", "question": "Site: Which fingernails are affected by the bluish color?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did you first notice the blue discoloration?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the color (e.g., pale blue, dark blue, purple)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Is the discoloration present in other areas of your body?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the blue fingernails (e.g., cold hands, shortness of breath)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long have you had the blue fingernails?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the bluish color?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s30",
+      "symptom": "Lips",
+      "questions": [
+        {"id": "q1", "question": "Site: Are both lips affected by the discoloration?", "type": "Yes/No"},
+        {"id": "q2", "question": "Onset: When did you first notice the change in lip color?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the color of your lips (e.g., pale, blue, purple)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Does the discoloration extend to the surrounding skin?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the lip discoloration (e.g., shortness of breath, chest pain)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long have you had the change in lip color?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What seems to worsen or alleviate the lip discoloration?", "type": "Open-ended"}
+      ]
+    },
+  {
+      "id": "s31",
+      "symptom": "Abdominal pain",
+      "questions": [
+        {"id": "q1", "question": "Site: Where is the abdominal pain located?", "type": "Open-ended"},
+        {"id": "q2", "question": "Onset: When did the abdominal pain start?", "type": "Open-ended"},
+        {"id": "q3", "question": "Character: How would you describe the pain (e.g., sharp, cramping, dull)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Radiation: Does the pain spread to any other areas?", "type": "Yes/No"},
+        {"id": "q5", "question": "Associations: Are there any other symptoms associated with the abdominal pain (e.g., nausea, vomiting)?", "type": "Open-ended"},
+        {"id": "q6", "question": "Time course: How long does the abdominal pain usually last?", "type": "Open-ended"},
+        {"id": "q7", "question": "Exacerbating/Relieving factors: What makes the abdominal pain better or worse?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s32",
+      "symptom": "Loss of appetite",
+      "questions": [
+        {"id": "q1", "question": "Onset: When did you first notice a loss of appetite?", "type": "Open-ended"},
+        {"id": "q2", "question": "Character: How would you describe the extent of appetite loss (e.g., complete loss, partial loss)?", "type": "Open-ended"},
+        {"id": "q3", "question": "Associations: Are there any other symptoms or factors associated with the loss of appetite (e.g., weight loss, fatigue)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Duration: How long have you experienced the loss of appetite?", "type": "Open-ended"},
+        {"id": "q5", "question": "Exacerbating/Relieving factors: What seems to worsen or improve your appetite?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s33",
+      "symptom": "Weight gain",
+      "questions": [
+        {"id": "q1", "question": "Onset: When did you first notice the weight gain?", "type": "Open-ended"},
+        {"id": "q2", "question": "Character: How would you describe the rate and pattern of weight gain (e.g., gradual, sudden)?", "type": "Open-ended"},
+        {"id": "q3", "question": "Associations: Are there any other symptoms or factors associated with the weight gain (e.g., swelling, changes in appetite)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Duration: How long have you experienced the weight gain?", "type": "Open-ended"},
+        {"id": "q5", "question": "Exacerbating/Relieving factors: Have there been any changes in your lifestyle or diet that might be related to the weight gain?", "type": "Open-ended"}
+      ]
+    },
+    {
+      "id": "s34",
+      "symptom": "Rapid heartbeat",
+      "questions": [
+        {"id": "q1", "question": "Onset: When did you first notice the rapid heartbeat?", "type": "Open-ended"},
+        {"id": "q2", "question": "Character: How would you describe the sensation of your heartbeat (e.g., pounding, racing)?", "type": "Open-ended"},
+        {"id": "q3", "question": "Associations: Are there any other symptoms associated with the rapid heartbeat (e.g., chest pain, shortness of breath)?", "type": "Open-ended"},
+        {"id": "q4", "question": "Duration: How long do episodes of rapid heartbeat typically last?", "type": "Open-ended"},
+        {"id": "q5", "question": "Exacerbating/Relieving factors: What seems to trigger or alleviate the rapid heartbeat?", "type": "Open-ended"}
+      ]
+    }
+  ]
 }
+
+
