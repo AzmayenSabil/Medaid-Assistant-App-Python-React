@@ -137,7 +137,7 @@ function FamilyHistory({ info }) {
 
   useEffect(() => {
     setFilteredOptions(familyHistoryOptions);
-  }, []);
+  }, [familyHistoryOptions]);
 
   const handleSearch = (event) => {
     const value = event.target.value;

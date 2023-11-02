@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./chiefComplaint.css";
 
 import Navbar from "../navbar/Navbar.jsx";
 
-function ChiefComplaint() {
-  const location = useLocation();
-
-  // console.log(location.state);
+function ChiefComplaint({ info }) {
 
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -21,6 +18,7 @@ function ChiefComplaint() {
     "Swelling in the Legs",
     "Leg Pain",
     // ----
+    "Angina",
     "Headache",
     "Back Pain",
     "Cough",
@@ -77,7 +75,7 @@ function ChiefComplaint() {
 
     navigate("/questions", {
       state: {
-        chiefComplaint: value,
+        chief_complaint: value,
       },
     });
   };
