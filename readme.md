@@ -5,7 +5,7 @@ MedAid is a medical app designed to assist doctors by gathering patient symptoms
 1. Clone the repository:
 
     ```bash
-    git clone <frontend-repo-url>
+    git clone <repo-url>
     ```
 
 ## Frontend
