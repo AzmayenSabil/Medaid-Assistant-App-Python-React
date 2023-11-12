@@ -57,7 +57,7 @@
     },
     "smoking": {
       "Q7": {
-        "question": "Do you smoke?",
+        "question": "Do you drink alcohol?",
         "answer": null,
         "type": "yes/no"
       }
@@ -79,7 +79,7 @@
     },
     {
         "id": "s2",
-        "symptom": "Dyspnea",
+        "symptom": "Dyspnoea",
         "questions": [
             {"id": "q1", "question": "Site: Where do you feel the shortness of breath?", "type": "Open-ended"},
             {"id": "q2", "question": "Onset: When did the shortness of breath start?", "type": "Open-ended"},
