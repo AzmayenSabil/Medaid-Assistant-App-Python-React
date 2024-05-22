@@ -14,6 +14,7 @@ const Summary = () => {
 
   // Filter out questions with empty or falsy responses
   const respondedQuestions = questions.filter((question) => question.response);
+  console.log(respondedQuestions)
 
   return (
     <div>
