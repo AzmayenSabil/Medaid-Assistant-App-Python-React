@@ -6,6 +6,7 @@ import Form from './components/form/Form';
 import ChiefComplaint from './components/chiefComplaint/ChiefComplaint';
 // import QuestioningLayout from './components/questionGen/QuestioningLayout';
 import QuestioningLayoutModified from './components/questionGen/QuestioningLayoutModified';
+import Summary from './components/summary/Summary'
 
 import FamilyHistory from './components/familyHistory/FamilyHistory';
 
@@ -20,6 +21,7 @@ function App() {
           {/* <Route exact path="/questions" element={<QuestioningLayout />} /> */}
           <Route exact path="/questions" element={<QuestioningLayoutModified />} />
           <Route exact path="/familyHistory" element={<FamilyHistory />} />
+          <Route exact path="/summary" element={<Summary />} />
         </Routes>
       </BrowserRouter>
     </div>

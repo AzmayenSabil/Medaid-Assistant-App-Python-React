@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar.jsx"; // Import the Navbar component
 import "./styles/questioningLayout.css"; // Import the CSS file for styling
 
 const QuestioningLayout = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:5000/questions");
-        setQuestions(response.data);
-        console.log(response.data)
-        setAnswers(new Array(response.data.length).fill(""));
+        setQuestions(
+          response.data.map((question) => ({
+            ...question,
+            response: "",
+          }))
+        );
       } catch (error) {
         console.error("Error:", error);
       }
@@ -32,28 +36,24 @@ const QuestioningLayout = () => {
   };
 
   const handleSaveAnswer = (event) => {
-    const updatedAnswers = [...answers];
-    updatedAnswers[currentQuestionIndex] = event.target.value;
-    setAnswers(updatedAnswers);
+    const updatedQuestions = [...questions];
+    updatedQuestions[currentQuestionIndex].response = event.target.value;
+    setQuestions(updatedQuestions);
+    console.log("Updated Questions:", updatedQuestions);
   };
 
   const handleFinish = () => {
-    console.log("Answers:", answers);
+    navigate("/summary", { state: { questions } });
   };
 
   return (
     <div>
       <Navbar /> {/* Render the Navbar component */}
       <div className="center-container">
-        {" "}
-        {/* Center the question container */}
         <div className="container">
           <h1 className="header">Question {currentQuestionIndex + 1}</h1>
           {questions.length > 0 && (
             <div className="question-box">
-              {/* <h2 className="question-title">
-                Question {currentQuestionIndex + 1}
-              </h2> */}
               <h3 className="question-text">
                 {questions[currentQuestionIndex].text}
               </h3>
@@ -64,6 +64,9 @@ const QuestioningLayout = () => {
                       type="radio"
                       name={`answer-${currentQuestionIndex}`}
                       value="Yes"
+                      checked={
+                        questions[currentQuestionIndex].response === "Yes"
+                      }
                       onChange={handleSaveAnswer}
                     />
                     <span className="question-radio-label">Yes</span>
@@ -73,6 +76,9 @@ const QuestioningLayout = () => {
                       type="radio"
                       name={`answer-${currentQuestionIndex}`}
                       value="No"
+                      checked={
+                        questions[currentQuestionIndex].response === "No"
+                      }
                       onChange={handleSaveAnswer}
                     />
                     <span className="question-radio-label">No</span>
@@ -87,6 +93,9 @@ const QuestioningLayout = () => {
                           type="radio"
                           name={`answer-${currentQuestionIndex}`}
                           value={answer}
+                          checked={
+                            questions[currentQuestionIndex].response === answer
+                          }
                           onChange={handleSaveAnswer}
                         />
                         <span className="question-radio-label">{answer}</span>
@@ -99,7 +108,7 @@ const QuestioningLayout = () => {
                   type="text"
                   placeholder="Type your answer here"
                   className="question-input"
-                  value={answers[currentQuestionIndex]}
+                  value={questions[currentQuestionIndex].response}
                   onChange={handleSaveAnswer}
                 />
               )}
