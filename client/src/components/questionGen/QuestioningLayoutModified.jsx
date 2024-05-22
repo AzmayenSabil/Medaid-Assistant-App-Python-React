@@ -13,6 +13,7 @@ const QuestioningLayout = () => {
       try {
         const response = await axios.get("http://localhost:5000/questions");
         setQuestions(response.data);
+        console.log(response.data)
         setAnswers(new Array(response.data.length).fill(""));
       } catch (error) {
         console.error("Error:", error);
@@ -46,43 +47,64 @@ const QuestioningLayout = () => {
       <div className="center-container">
         {" "}
         {/* Center the question container */}
-        <div className="questioning-container">
-          <h1 className="header">Questions</h1>
-          {questions.map((question, index) => (
-            <div key={index} className="question-box">
-              <h2 className="question-text">{question.text}</h2>
-              {question.type === "yes/no" ? (
-                <div className="option-container">
-                  <label className="option-label">
+        <div className="container">
+          <h1 className="header">Question {currentQuestionIndex + 1}</h1>
+          {questions.length > 0 && (
+            <div className="question-box">
+              {/* <h2 className="question-title">
+                Question {currentQuestionIndex + 1}
+              </h2> */}
+              <h3 className="question-text">
+                {questions[currentQuestionIndex].text}
+              </h3>
+              {questions[currentQuestionIndex].type === "yes/no" ? (
+                <div className="question-options">
+                  <label className="question-label">
                     <input
                       type="radio"
-                      name={`answer-${index}`}
+                      name={`answer-${currentQuestionIndex}`}
                       value="Yes"
                       onChange={handleSaveAnswer}
                     />
-                    Yes
+                    <span className="question-radio-label">Yes</span>
                   </label>
-                  <label className="option-label">
+                  <label className="question-label">
                     <input
                       type="radio"
-                      name={`answer-${index}`}
+                      name={`answer-${currentQuestionIndex}`}
                       value="No"
                       onChange={handleSaveAnswer}
                     />
-                    No
+                    <span className="question-radio-label">No</span>
                   </label>
+                </div>
+              ) : questions[currentQuestionIndex].type === "range" ? (
+                <div className="question-options-horizontal">
+                  {questions[currentQuestionIndex].answers.map(
+                    (answer, index) => (
+                      <label className="question-label-horizontal" key={index}>
+                        <input
+                          type="radio"
+                          name={`answer-${currentQuestionIndex}`}
+                          value={answer}
+                          onChange={handleSaveAnswer}
+                        />
+                        <span className="question-radio-label">{answer}</span>
+                      </label>
+                    )
+                  )}
                 </div>
               ) : (
                 <input
                   type="text"
                   placeholder="Type your answer here"
-                  className="text-input"
+                  className="question-input"
                   value={answers[currentQuestionIndex]}
                   onChange={handleSaveAnswer}
                 />
               )}
             </div>
-          ))}
+          )}
           <div className="button-container">
             <button
               className="button"
