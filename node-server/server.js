@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const questionRoutes = require("./routes/questionRoutes");
+const symptomRoutes = require('./routes/symptomsRoutes');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors());
 
 // Routes
 app.use("/questions", questionRoutes);
+app.use('/symptoms', symptomRoutes);
 
 // Connect to MongoDB
 mongoose
