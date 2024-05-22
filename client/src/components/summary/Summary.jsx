@@ -12,6 +12,9 @@ const Summary = () => {
     navigate("/");
   };
 
+  // Filter out questions with empty or falsy responses
+  const respondedQuestions = questions.filter((question) => question.response);
+
   return (
     <div>
       <Navbar />
@@ -21,7 +24,7 @@ const Summary = () => {
         </div>
         <div className="summary-container">
           <div className="summary-content">
-            {questions.map((question, index) => (
+            {respondedQuestions.map((question, index) => (
               <div key={index} className="summary-question">
                 <h2>
                   {index + 1}: {question.text}
