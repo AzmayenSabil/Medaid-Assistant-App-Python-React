@@ -39,7 +39,7 @@ const QuestioningLayout = () => {
     const updatedQuestions = [...questions];
     updatedQuestions[currentQuestionIndex].response = event.target.value;
     setQuestions(updatedQuestions);
-    console.log("Updated Questions:", updatedQuestions);
+    // console.log("Updated Questions:", updatedQuestions);
   };
 
   const handleFinish = () => {

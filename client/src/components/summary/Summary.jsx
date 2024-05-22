@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar.jsx"; // Import the Navbar component
-
+import "./styles/summary.css"; // Import the CSS file for styling
 
 const Summary = () => {
   const location = useLocation();
@@ -15,16 +15,24 @@ const Summary = () => {
   return (
     <div>
       <Navbar />
-      <div className="summary-container">
-        <h1>Summary of Your Responses</h1>
-        {questions.map((question, index) => (
-          <div key={index} className="summary-question">
-            <h2>{question.text}</h2>
-            <p>
-              <strong>Answer:</strong> {question.response}
-            </p>
+      <div className="summary-center-container">
+        <div className="summary-header">
+          <h1>Summary of Your Responses</h1>
+        </div>
+        <div className="summary-container">
+          <div className="summary-content">
+            {questions.map((question, index) => (
+              <div key={index} className="summary-question">
+                <h2>
+                  {index + 1}: {question.text}
+                </h2>
+                <p>
+                  <strong>Answer:</strong> {question.response}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
         <button className="button" onClick={handleBackToHome}>
           Back to Home
         </button>

@@ -1,7 +1,7 @@
 const Question = require("../models/Question");
 
 exports.getQuestions = async (req, res) => {
-    console.log("Responsed");
+  console.log("Responsed");
   try {
     const questions = await Question.find();
     res.json(questions);
@@ -30,7 +30,6 @@ exports.getQuestions = async (req, res) => {
 //     res.status(500).send("Server Error");
 //   }
 // };
-
 
 exports.createQuestion = async (req, res) => {
   try {
@@ -71,4 +70,3 @@ exports.createQuestion = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
-
