@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Medaid-Assistant-App-Python-React/static/css/main.dd6506c4.css",
+    "main.js": "/Medaid-Assistant-App-Python-React/static/js/main.97a7b50f.js",
+    "index.html": "/Medaid-Assistant-App-Python-React/index.html",
+    "main.dd6506c4.css.map": "/Medaid-Assistant-App-Python-React/static/css/main.dd6506c4.css.map",
+    "main.97a7b50f.js.map": "/Medaid-Assistant-App-Python-React/static/js/main.97a7b50f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd6506c4.css",
+    "static/js/main.97a7b50f.js"
+  ]
+}
