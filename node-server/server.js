@@ -15,6 +15,10 @@ app.use(cors());
 app.use("/questions", questionRoutes);
 app.use('/symptoms', symptomRoutes);
 
+app.use("/", (req, res) => {
+  res.send("SERVER IS RUNNING");
+})
+
 // Connect to MongoDB
 mongoose
   .connect("mongodb+srv://admin:admin@cluster0.jcoztbt.mongodb.net/", {
