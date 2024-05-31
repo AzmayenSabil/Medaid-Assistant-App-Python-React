@@ -5,6 +5,9 @@ import axios from "axios"; // Import Axios
 import Navbar from "../navbar/Navbar.js";
 import "./styles/summary.css";
 
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
+
 const Summary = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -29,9 +32,13 @@ const Summary = () => {
     // Send the data as a POST request
     const sendDataToServer = async () => {
       try {
-        const response = await axios.post("http://localhost:5000/symptoms", {
+        // const response = await axios.post("http://localhost:5000/symptoms", {
+        //   symptoms: symptomData,
+        // });
+        const response = await axios.post(`${API_URL}/symptoms`, {
           symptoms: symptomData,
         });
+
         console.log("Data sent successfully:", response.data);
       } catch (error) {
         console.error("Error sending data:", error);

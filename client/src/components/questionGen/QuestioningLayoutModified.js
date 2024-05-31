@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar.js"; // Import the Navbar component
 import "./styles/questioningLayout.css"; // Import the CSS file for styling
 
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
 const QuestioningLayout = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -12,7 +14,9 @@ const QuestioningLayout = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/questions");
+        // const response = await axios.get("http://localhost:5000/questions");
+        const response = await axios.get(`${API_URL}/questions`);
+
         setQuestions(
           response.data.map((question) => ({
             ...question,
