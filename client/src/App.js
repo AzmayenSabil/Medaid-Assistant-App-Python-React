@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Home from './components/home/Home.jsx';
+import Home from './components/home/Home.js';
 import Form from './components/form/Form.jsx';
 import ChiefComplaint from './components/chiefComplaint/ChiefComplaint.jsx';
 // import QuestioningLayout from './components/questionGen/QuestioningLayout';
