@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Navbar from "../navbar/Navbar.jsx";
+import Navbar from "../navbar/Navbar.js";
 
 import "./familyHistory.css";
 

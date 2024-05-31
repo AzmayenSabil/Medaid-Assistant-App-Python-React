@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./chiefComplaint.css";
 
-import Navbar from "../navbar/Navbar.jsx";
+import Navbar from "../navbar/Navbar.js";
 
 function ChiefComplaint({ info }) {
 

@@ -2,13 +2,13 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from './components/home/Home.js';
-import Form from './components/form/Form.jsx';
-import ChiefComplaint from './components/chiefComplaint/ChiefComplaint.jsx';
+import Form from './components/form/Form.js';
+import ChiefComplaint from './components/chiefComplaint/ChiefComplaint.js';
 // import QuestioningLayout from './components/questionGen/QuestioningLayout';
-import QuestioningLayoutModified from './components/questionGen/QuestioningLayoutModified.jsx';
-import Summary from './components/summary/Summary.jsx'
+import QuestioningLayoutModified from './components/questionGen/QuestioningLayoutModified.js';
+import Summary from './components/summary/Summary.js'
 
-import FamilyHistory from './components/familyHistory/FamilyHistory.jsx';
+import FamilyHistory from './components/familyHistory/FamilyHistory.js';
 
 function App() {
   return (

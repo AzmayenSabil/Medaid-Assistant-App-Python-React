@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import "./home.css";
-import Navbar from "../navbar/Navbar.jsx";
+import Navbar from "../navbar/Navbar.js";
 
 function Home() {
   return (

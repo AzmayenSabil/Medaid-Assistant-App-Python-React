@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../navbar/Navbar.jsx"; // Import the Navbar component
+import Navbar from "../navbar/Navbar.js"; // Import the Navbar component
 import "./styles/questioningLayout.css"; // Import the CSS file for styling
 
 const QuestioningLayout = () => {
