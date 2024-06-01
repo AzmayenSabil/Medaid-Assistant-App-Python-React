@@ -12,6 +12,15 @@ const allowedOrigins = [
   "http://localhost:5000",
 ];
 
+// Connect to MongoDB
+mongoose
+  .connect("mongodb+srv://admin:admin@cluster0.jcoztbt.mongodb.net/", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.error(err));
+
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
@@ -34,15 +43,6 @@ app.use('/symptoms', symptomRoutes);
 app.use("/", (req, res) => {
   res.send("SERVER IS RUNNING");
 })
-
-// Connect to MongoDB
-mongoose
-  .connect("mongodb+srv://admin:admin@cluster0.jcoztbt.mongodb.net/", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.error(err));
 
 // Start server
 const PORT = process.env.PORT || 5000;
