@@ -10,14 +10,33 @@ function FamilyHistory({ info }) {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [familyHistoryOptions] = useState([
-    "History 1",
-    "History 2",
-    "History 3",
-    "Family History 1",
-    "Family History 2",
-    "Family History 3",
-    // Add more family history options here
+    "Asthma",
+    "Eczema",
+    "Allergy",
+    "Cataract",
+    "Migraine",
+    "Rheumatoid Arthritis",
+    "Lupus",
+    "Diabetes",
+    "High Blood Pressure",
+    "High Cholesterol",
+    "Familial Hypercholesterolemia (Genetic Disorder)",
+    "Crohn's Disease",
+    "Ulcerative Colitis",
+    "Ear Issues",
+    "Stroke",
+    "Hormone Problems",
+    "Depression",
+    "Digestive Problems",
+    "Celiac Disease",
+    "Liver Disease",
+    "Bleeding/Clotting Disorder",
+    "Deep Vein Thrombosis (DVT) or Pulmonary Embolism (PE)",
+    "Cancer",
+    "Lung Conditions",
+    "Heart Conditions",
   ]);
+
   const [filteredOptions, setFilteredOptions] = useState([]);
   const [selectedHistory, setSelectedHistory] = useState([]); // Use an array to store selected options
   const navigate = useNavigate();

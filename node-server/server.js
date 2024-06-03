@@ -9,7 +9,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://medaid-assistant-app-client-2le6jqjul-azmayensabils-projects.vercel.app",
-  "http://localhost:5000",
+  "http://localhost:3000",
 ];
 
 // Connect to MongoDB

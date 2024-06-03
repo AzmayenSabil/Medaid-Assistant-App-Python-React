@@ -6,6 +6,7 @@ import Navbar from "../navbar/Navbar.js";
 import "./styles/summary.css";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
+// const API_URL = process.env.LOCALHOST_URL;
 
 
 const Summary = () => {

@@ -1,21 +1,56 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../navbar/Navbar.js"; // Import the Navbar component
 import "./styles/questioningLayout.css"; // Import the CSS file for styling
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
+// const API_URL = process.env.LOCALHOST_URL;
 
 const QuestioningLayout = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const previousState = location.state.chief_complaint;
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     console.log(previousState);
+  //     try {
+  //       const response = await axios.get("http://localhost:5000/questions");
+  //       // const response = await axios.get(`${API_URL}/questions`);
+
+  //       setQuestions(
+  //         response.data.map((question) => ({
+  //           ...question,
+  //           response: "",
+  //         }))
+  //       );
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log(previousState);
       try {
-        // const response = await axios.get("http://localhost:5000/questions");
-        const response = await axios.get(`${API_URL}/questions`);
+        // const response = await axios.get("http://localhost:5000/questions", {
+        //   params: {
+        //     chief_complaint: JSON.stringify(previousState),
+        //   },
+        // });
+  
+        const response = await axios.get(`${API_URL}/questions`, {
+          params: {
+            chief_complaint: JSON.stringify(previousState),
+          },
+        });
 
         setQuestions(
           response.data.map((question) => ({
@@ -30,6 +65,7 @@ const QuestioningLayout = () => {
 
     fetchData();
   }, []);
+
 
   const handleNext = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
