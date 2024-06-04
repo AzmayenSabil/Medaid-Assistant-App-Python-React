@@ -11,20 +11,20 @@ function ChiefComplaint({ info }) {
   const [submitted, setSubmitted] = useState(false);
   const [complaints, setComplaints] = useState([]);
   const symptoms = [
-    "Chest Pain",
-    "Cough",
-    "Shortness of Breath",
-    "Wheezing",
-    "Fatigue",
-    "Lightheadedness",
-    "Drowsiness",
-    "Headache",
-    "Nausea",
-    "Vomiting",
-    "Blood in Vomit",
-    "Yellowish Vomit",
-    "Chills",
-    "Fever",
+    "chest Pain",
+    "cough",
+    "shortness of Breath",
+    "wheezing",
+    "fatigue",
+    "lightheadedness",
+    "drowsiness",
+    "headache",
+    "nausea",
+    "vomiting",
+    "blood in Vomit",
+    "yellowish Vomit",
+    "chills",
+    "fever",
   ];
 
 

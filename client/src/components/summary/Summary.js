@@ -1,13 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios"; // Import Axios
+import axios from "axios";
 import Navbar from "../navbar/Navbar.js";
 import "./styles/summary.css";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
-// const API_URL = process.env.LOCALHOST_URL;
-
 
 const Summary = () => {
   const location = useLocation();
@@ -19,26 +17,24 @@ const Summary = () => {
   };
 
   // Filter out questions with empty or falsy responses
-  const respondedQuestions = questions.filter((question) => question.response);
+  const respondedQuestions = questions.filter((question) => question.answer);
 
   // Prepare the data to send to the server
   const symptomData = respondedQuestions.map((question) => ({
-    symptom: question.label,
-    present: question.response === "Yes", // Assuming "Yes" means the symptom is present
+    question: question.question, // Use 'question' instead of 'label'
+    answer: question.answer, // Include both "Yes" and "No"
   }));
   console.log(symptomData);
 
-  // Call sendDataToServer when the component mounts
   useEffect(() => {
-    // Send the data as a POST request
     const sendDataToServer = async () => {
       try {
-        // const response = await axios.post("http://localhost:5000/symptoms", {
-        //   symptoms: symptomData,
-        // });
-        const response = await axios.post(`${API_URL}/symptoms`, {
-          symptoms: symptomData,
-        });
+        const response = await axios.get(
+          `${API_URL}/questions/patient-history`,
+          {
+            symptoms: symptomData,
+          }
+        );
 
         console.log("Data sent successfully:", response.data);
       } catch (error) {
@@ -47,7 +43,7 @@ const Summary = () => {
     };
 
     sendDataToServer();
-  }, []);
+  }, [symptomData]);
 
   return (
     <div>
@@ -61,10 +57,10 @@ const Summary = () => {
             {respondedQuestions.map((question, index) => (
               <div key={index} className="summary-question">
                 <h2>
-                  {index + 1}: {question.text}
+                  {index + 1}: {question.question}
                 </h2>
                 <p>
-                  <strong>Answer:</strong> {question.response}
+                  <strong>Answer:</strong> {question.answer}
                 </p>
               </div>
             ))}

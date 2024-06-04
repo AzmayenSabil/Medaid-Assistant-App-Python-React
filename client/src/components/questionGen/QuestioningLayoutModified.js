@@ -5,85 +5,88 @@ import Navbar from "../navbar/Navbar.js"; // Import the Navbar component
 import "./styles/questioningLayout.css"; // Import the CSS file for styling
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
-// const API_URL = process.env.LOCALHOST_URL;
 
 const QuestioningLayout = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [questionThreshold, setQuestionThreshold] = useState(10);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const previousState = location.state.chief_complaint;
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     console.log(previousState);
-  //     try {
-  //       const response = await axios.get("http://localhost:5000/questions");
-  //       // const response = await axios.get(`${API_URL}/questions`);
-
-  //       setQuestions(
-  //         response.data.map((question) => ({
-  //           ...question,
-  //           response: "",
-  //         }))
-  //       );
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
+  const previousState = location.state?.chief_complaint;
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(previousState);
+      if (!previousState) return;
+
       try {
-        // const response = await axios.get("http://localhost:5000/questions", {
-        //   params: {
-        //     chief_complaint: JSON.stringify(previousState),
-        //   },
-        // });
-  
-        const response = await axios.get(`${API_URL}/questions`, {
-          params: {
-            chief_complaint: JSON.stringify(previousState),
-          },
+        const response = await axios.post(`${API_URL}/questions/initial`, {
+          nodeName: previousState,
         });
 
-        setQuestions(
-          response.data.map((question) => ({
-            ...question,
-            response: "",
-          }))
-        );
+        const initialQuestion = {
+          ...response.data,
+          response: "",
+        };
+
+        setQuestions([initialQuestion]);
       } catch (error) {
         console.error("Error:", error);
       }
     };
 
     fetchData();
+  }, [previousState]);
+
+  useEffect(() => {
+    // Generate a random threshold between 10 and 15
+    const randomThreshold = Math.floor(Math.random() * 6) + 10;
+    setQuestionThreshold(randomThreshold);
   }, []);
 
+  const handleNext = async () => {
+    if (currentQuestionIndex < questions.length) {
+      const currentQuestion = questions[currentQuestionIndex];
+      try {
+        const response = await axios.post(`${API_URL}/questions/next`, {
+          question: currentQuestion.text,
+          answer: currentQuestion.response,
+        });
 
-  const handleNext = () => {
-    setCurrentQuestionIndex(currentQuestionIndex + 1);
+        const newQuestion = {
+          ...response.data,
+          response: "",
+        };
+
+        setQuestions((prevQuestions) => [...prevQuestions, newQuestion]);
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
   };
 
   const handleBack = () => {
-    setCurrentQuestionIndex(currentQuestionIndex - 1);
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
   };
 
   const handleSaveAnswer = (event) => {
     const updatedQuestions = [...questions];
-    updatedQuestions[currentQuestionIndex].response = event.target.value;
+    if (updatedQuestions[currentQuestionIndex]) {
+      updatedQuestions[currentQuestionIndex].response = event.target.value;
+    }
     setQuestions(updatedQuestions);
-    // console.log("Updated Questions:", updatedQuestions);
   };
 
   const handleFinish = () => {
-    navigate("/summary", { state: { questions } });
+    const questionsWithResponses = questions.map((q) => ({
+      question: q.text,
+      answer: q.response,
+    }));
+    console.log(questionsWithResponses);
+    navigate("/summary", { state: { questions: questionsWithResponses } });
   };
 
   return (
@@ -92,7 +95,7 @@ const QuestioningLayout = () => {
       <div className="center-container">
         <div className="container">
           <h1 className="header">Question {currentQuestionIndex + 1}</h1>
-          {questions.length > 0 && (
+          {questions.length > 0 && questions[currentQuestionIndex] && (
             <div className="question-box">
               <h3 className="question-text">
                 {questions[currentQuestionIndex].text}
@@ -126,22 +129,27 @@ const QuestioningLayout = () => {
                 </div>
               ) : questions[currentQuestionIndex].type === "range" ? (
                 <div className="question-options-horizontal">
-                  {questions[currentQuestionIndex].answers.map(
-                    (answer, index) => (
-                      <label className="question-label-horizontal" key={index}>
-                        <input
-                          type="radio"
-                          name={`answer-${currentQuestionIndex}`}
-                          value={answer}
-                          checked={
-                            questions[currentQuestionIndex].response === answer
-                          }
-                          onChange={handleSaveAnswer}
-                        />
-                        <span className="question-radio-label">{answer}</span>
-                      </label>
-                    )
-                  )}
+                  {questions[currentQuestionIndex].answers &&
+                    questions[currentQuestionIndex].answers.map(
+                      (answer, index) => (
+                        <label
+                          className="question-label-horizontal"
+                          key={index}
+                        >
+                          <input
+                            type="radio"
+                            name={`answer-${currentQuestionIndex}`}
+                            value={answer}
+                            checked={
+                              questions[currentQuestionIndex].response ===
+                              answer
+                            }
+                            onChange={handleSaveAnswer}
+                          />
+                          <span className="question-radio-label">{answer}</span>
+                        </label>
+                      )
+                    )}
                 </div>
               ) : (
                 <input
@@ -165,11 +173,18 @@ const QuestioningLayout = () => {
             <button
               className="button"
               onClick={handleNext}
-              disabled={currentQuestionIndex === questions.length - 1}
+              disabled={
+                currentQuestionIndex >= questionThreshold ||
+                !questions[currentQuestionIndex]?.response
+              }
             >
               Next
             </button>
-            <button className="button" onClick={handleFinish}>
+            <button
+              className="button"
+              onClick={handleFinish}
+              // disabled={currentQuestionIndex < questionThreshold - 1}
+            >
               Finish
             </button>
           </div>
